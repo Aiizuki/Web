@@ -1,0 +1,80 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Activity index{% endblock %}
+
+{% block body %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-custom">
+        <a class="navbar-brand" href="#"> Un univers d'activités    |</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="/home">Acceuil </a>
+                <a class="nav-item nav-link active" href="/activity">Activités </a>
+                {% if is_granted("ROLE_ADMIN") %}
+                    <a class="nav-item nav-link" href="{{ path('user_index') }}">Animateurs </a>
+                {% endif %}
+                {% if app.user %}
+                    <a class="nav-item nav-link" href="/logout">Se Déconnecter </a>
+                {% else %}
+                    <a class="nav-item nav-link" href="/login">Se Connecter </a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+<div class="card activite">
+    <div class="card-header">
+        <h1>Liste des activités</h1>
+    </div>
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Description</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for activity in activities %}
+            <tr>
+                <th class="align-middle" scope="row">{{ activity.id }}</th>
+                <td class="align-middle">{{ activity.nom }}</td>
+                <td class="align-middle">{{ activity.description }}</td>
+                <td>
+                    <a class="btn btn-success" href="{{ path('activity_show', {'id': activity.id}) }}" role="button">inspecter</a>
+                    {% if app.user %}
+                        {% if is_granted('ROLE_ANIMATOR') %}
+                            <a class="btn btn-success" href="{{ path('activity_edit', {'id': activity.id}) }}" role="button">editer</a>
+                            <a class="btn btn-success" href="{{ path('activity_showP', {'id': activity.id}) }}" role="button">Voir les participants</a>
+                        {% endif %}
+                        {% if is_granted('ROLE_USER') %}
+                            {% if not is_granted('ROLE_ANIMATOR') %}
+                                <a class="btn btn-success" href="{{ path('activity_inscription', {'id':activity.id}) }}" role="button">s'inscrire</a>
+                                <a class="btn btn-success" href="{{ path('activity_desinscription', {'id':activity.id}) }}" role="button">se désinscrire</a>
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="flex-row d-flex justify-content-center">
+    {% if is_granted('ROLE_ANIMATOR') %}
+        <a class="btn btn-success flex-fill" href="{{ path('activity_new') }}" role="button">Créer une activité</a>
+    {% endif %}
+    {% if is_granted('ROLE_USER') %}
+        {% if not is_granted('ROLE_ANIMATOR') %}
+            <a class="btn btn-success flex-fill" href="{{ path('activity_showI') }}" role="button">Voir ses inscriptions</a>
+        {% endif %}
+    {% endif %}
+    </div>
+</div>
+{% endblock %}

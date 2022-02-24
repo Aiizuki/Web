@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Activity{% endblock %}
+
+{% block body %}
+<div class="card text-center login">
+    <div class="card-header"><h3>Créez une activité</h3></div>
+
+    {{ include('activity/_form.html.twig') }}
+
+    <a class="btn btn-success" href="{{ path('activity_index') }}" role="button">Retour à la liste</a>
+</div>
+{% endblock %}

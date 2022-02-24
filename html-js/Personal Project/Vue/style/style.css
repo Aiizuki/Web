@@ -1,0 +1,75 @@
+body {
+background-image:url("Images/background landscape.jpg");background-repeat:no-repeat;background-size: cover;background-color: #F1F4F9}
+html {
+width:100%;padding:0;margin:0
+}
+h5 {
+color:#ACC0D7;font-size:15px;margin-left:15px;margin-top:15px;margin-right:15px
+}
+strong {
+font-size:15px;color:#414A51}
+header {
+background-color:#006400;height:12%;width:100%;text-align:center;
+}
+ul {
+list-style:none;width:100%;margin-left:8%;margin-right:0px;margin-top:0px;margin-bottom:0px;padding:0px
+}
+li {
+color:#FFF;font-family:"Comic Sans MS";font-size:14px;font-weight:Bold;
+}
+a{
+text-decoration:none;color:#FFF;font-family:"Comic Sans MS";font-size:14px;font-weight:Bold;
+}
+a:hover{
+color:#2D3E4A
+}
+li:hover{
+color:#2D3E4A
+}
+li::after{
+content: ".";font-size:20px;color:#237DAC;margin:15px
+}
+ul,li,nav{
+display:inline-block; text-align:middle; vertical-align:middle 
+}
+aside {
+position:absolute;right:15%;top:7.5%; margin-right:5%; width:24%; margin-top:20px; max-width:328px
+}
+.bulle{
+background-color:rgba(192,192,192,0.5);border-color:#F1F4F9; border:1px; border-style:solid; color:#414A51; padding-left:8px;padding-right:30px;padding-top:5px; padding-bottom:20px; margin-bottom:30px; border-radius:10px;width:190%}
+.image{
+margin:5px;float:left
+}
+.centrale{
+margin-left:8%;padding-top:3%;width:60%	
+}
+form {
+margin:auto;width:75%	
+}
+fieldset {
+background-color:247,247,247;border-radius:5px;margin-bottom:10px;border-color:#CCC;border:1px;border-style:solid	
+}
+fieldset:hover{
+box-shadow:	0pt 2px 5px rgba(105,108,109,0.7), 0px 0px 8px 5px rgba(208,223,226,0.4)inset
+}
+legend{
+color:#FFF;background-color:#006400;border-color:#F0E68C;border-style:solid;border-width:1px;
+}
+img[name="Bulle"]{
+border-radius:3px;border:10px;border-color:(192,192,192);margin-bottom:-15px;
+}
+.centrale[name="Roll"]{
+background-color : rgba(114,81,13,0.5);margin-top:15px;margin-left:100px;width:80%;border-radius:15px;	
+}
+div[name="barreRoll"]{
+margin-bottom:10px;margin-left:15px;margin-top:-40px;
+}
+div[name="Roll"],div[name="outer"]{
+margin-left:10px;	
+}
+div[id="output"]{
+color:#FFF;
+}
+div[class="dés"]{
+margin-left:15px;
+}

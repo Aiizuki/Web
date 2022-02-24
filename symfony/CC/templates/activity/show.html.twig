@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Activity{% endblock %}
+
+{% block body %}
+<div class="card activite">
+    <div class="card-header">
+        <h1>Détails de l'activité</h1>
+    </div>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ activity.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom de l'activité </th>
+                <td>{{ activity.nom }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ activity.description }}</td>
+            </tr>
+            {% if is_granted("ROLE_ANIMATOR") %}
+                <tr>
+                    <th>Participants</th>
+                    <td>
+                        {% for user in activity.participants %}
+                            {{ user.id }} | {{ user.nom }} | {{ user.prenom }} //
+                        {% endfor %}
+                    </td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    <a class="btn btn-success" href="{{ path('activity_index') }}" role="button">Retour à la liste</a>
+</div>
+{% endblock %}

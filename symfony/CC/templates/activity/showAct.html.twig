@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Activity{% endblock %}
+
+{% block body %}
+    <div class="card activite">
+    <div class="card-header">
+        <h1>Liste des activités</h1>
+    </div>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Inscrit à</th>
+            <td>
+                {% for activity in user.inscrit %}
+                    {{ activity.id }} |
+                {% endfor %}
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-success" href="{{ path('activity_index') }}" role="button">retour à la liste</a>
+    </div>
+{% endblock %}

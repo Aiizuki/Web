@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Activity{% endblock %}
+
+{% block body %}
+<div class="card text-center login">
+    <div class="card-header"><h3>Editez l'activité</h3></div>
+        {{ include('activity/_form.html.twig', {'button_label': 'Update'}) }}
+        {{ include('activity/_delete_form.html.twig') }}
+    <a class="btn btn-success align-self-center" href="{{ path('activity_index') }}" role="button">Retour à la liste</a>
+</div>
+{% endblock %}
