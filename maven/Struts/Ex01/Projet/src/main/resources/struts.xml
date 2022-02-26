@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <constant name="struts.custom.i18n.resources" value="mesTextes"/>
+    <constant name="struts.i18n.encoding" value="UTF-8" />
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+
+    <package name="default" namespace="/" extends="struts-default">
+
+        <default-action-ref name="accueil"/>
+
+        <action name="accueil" class="actions.DefaultLogs">
+            <result>/WEB-INF/pages/pageAccueil.jsp</result>
+        </action>
+
+        <action name="connexionPage" class="actions.DefaultCalcul">
+            <result>/WEB-INF/pages/connexion.jsp</result>
+        </action>
+
+        <action name="casioNulle" class="actions.DefaultCalcul">
+            <result>/WEB-INF/pages/casioNulle.jsp</result>
+        </action>
+
+        <action name="casioDeluxe" class="actions.CalculetteDeluxe" method="parDefaut">
+            <result>/WEB-INF/pages/casioDeluxe.jsp</result>
+        </action>
+
+        <action name="forgotPWD">
+            <result>/WEB-INF/pages/NoPWD.jsp</result>
+        </action>
+
+        <action name="return">
+            <result>/WEB-INF/pages/pageAccueil.jsp</result>
+        </action>
+
+        <action name="connexion" class="actions.ControlleurConnect">
+            <result name="success">
+                /WEB-INF/pages/pageAccueil.jsp
+            </result>
+
+            <result name="input">
+                /WEB-INF/pages/connexion.jsp
+            </result>
+        </action>
+
+        <action name="calculetteNulle" class="actions.CalculetteNulle">
+            <result name="success">
+                /WEB-INF/pages/casioNulle.jsp
+            </result>
+
+            <result name="input">
+                /WEB-INF/pages/casioNulle.jsp
+            </result>
+        </action>
+
+        <action name="calculetteDeluxe" class="actions.CalculetteDeluxe">
+            <result name="success">
+                /WEB-INF/pages/casioDeluxe.jsp
+            </result>
+
+        </action>
+    </package>
+
+</struts>
+
