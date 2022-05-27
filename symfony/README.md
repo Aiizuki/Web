@@ -1,5 +1,5 @@
 <h1> PROJET CC </h1>
-<p> Auteurs :</p>
+<p> Auteur :</p>
 <ul>
 <li> BESNIER Corentin</li>
 </ul>
