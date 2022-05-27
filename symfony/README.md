@@ -2,8 +2,6 @@
 <p> Auteurs :</p>
 <ul>
 <li> BESNIER Corentin</li>
-<li> BONGIBAULT Mathieu</li>
-<li> DEBLOCK Thomas</li>
 </ul>
 <p>=======================================</p>
 
