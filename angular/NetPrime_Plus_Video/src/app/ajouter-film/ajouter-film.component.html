@@ -1,0 +1,24 @@
+<form *ngIf="categories !== undefined && film !== undefined">
+  <label for="leTitre"> Titre : </label>
+  <input #titre id="leTitre" type="text" value="{{film.titre}}">
+  <br/>
+  <label> Durée : </label>
+  <input #duree type="number" value="{{film.duree}}">
+  <br/>
+  <label>Catégorie :</label>
+  <select #categorie value="{{film.categorie}}">
+    <option *ngFor="let cat of categories" value="{{cat.nom}}">{{ cat.nom }}</option>
+  </select>
+  <br/>
+  <label>Version :</label>
+  <select #version value="{{film.version}}">
+    <option value="française">Français</option>
+    <option value="originale">Originale</option>
+  </select>
+  <label> Résumé : </label>
+  <textarea #resume>{{film.resume}}</textarea>
+  <br/>
+  <button [disabled]="!newFilm" (click)="create(titre.value, +duree.value, categorie.value, version.value, resume.value)"> Ajouter </button>
+  <button [disabled]="newFilm" (click)="update(titre.value, +duree.value, categorie.value, version.value, resume.value)"> Modifier le film </button>
+  <button (click)="goBack()"> Annuler </button>
+</form>

@@ -1,0 +1,15 @@
+<form *ngIf="response === undefined">
+  <label>Sélectionnez un genre :</label>
+  <select #categorie value="{{film}}">
+    <option *ngFor="let cat of categories" value="{{cat.nom}}">{{ cat.nom }}</option>
+  </select>
+  <br/>
+  <button (click)="afficher(categorie.value)"> Afficher tous les films </button>
+</form>
+
+<div name="categories">
+  <ul *ngIf="response !== undefined">
+    <p>Voici les Films disponibles:</p>
+    <li *ngFor="let f of film"> {{ f.titre }} || {{ f.categorie }} || {{ f.duree }} || {{ f.version }} || {{ f.resume }} || <button (click)="delete(f.id)">Supprimer</button></li>
+  </ul>
+</div>
