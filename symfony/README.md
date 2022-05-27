@@ -1,9 +1,7 @@
 <h1> PROJET CC </h1>
-<p> Auteurs :</p>
+<p> Auteur :</p>
 <ul>
 <li> BESNIER Corentin</li>
-<li> BONGIBAULT Mathieu</li>
-<li> DEBLOCK Thomas</li>
 </ul>
 <p>=======================================</p>
 
